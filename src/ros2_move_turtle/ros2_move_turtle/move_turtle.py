@@ -14,7 +14,7 @@ class MoveTurtle(Node):
 
         self.publisher = self.create_publisher(Twist, '/turtle1/cmd_vel', 10)
 
-        self.get_logger().info("Move Turtle Node Started")
+        self.get_logger().info("Start turtle robot")
 
     def pose_callback(self, msg):
 
@@ -24,7 +24,7 @@ class MoveTurtle(Node):
         if(msg.x > 7.0 or msg.y > 7.0):
             cmd.linear.x = 0.0
             cmd.angular.z = 0.0
-            self.get_logger().info("Stopping turtle")
+            self.get_logger().info("Stopping turtle robot")
 
             self.get_logger().info(f"Final position -> x: {msg.x:.2f}, y: {msg.y:.2f}")
 
